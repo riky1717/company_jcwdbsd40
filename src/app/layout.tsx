@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import "./globals.css";
+import FooterYear from "../components/FooterYear";
 
 export const metadata: Metadata = {
   title: "Company Profile",
@@ -67,7 +69,11 @@ export default function RootLayout({
             </div>
           </div>
           <div className="max-w-6xl mx-auto px-4 mt-8 pt-6 border-t border-gray-800 text-center text-xs">
-            &copy; {new Date().getFullYear()} CORPSPACE. Hak Cipta Dilindungi.
+            &copy;{" "}
+            <Suspense fallback="2026">
+              <FooterYear />
+            </Suspense>{" "}
+            CORPSPACE. Hak Cipta Dilindungi.
           </div>
         </footer>
 
